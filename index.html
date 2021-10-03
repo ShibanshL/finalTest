@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="page1">
+        <h1>X Pos<br><span id="one"></span></h1>
+        <h1>Y Pos<br><span id="two"></span></h1>
+        <h1>Z Pos<br><span id="three"></span></h1>
+        <h1>X Tilt Pos<br><span id="four"></span></h1>
+        <h1>Y Tilt<br><span id="five"></span></h1>
+
+    </div>
+    <script>
+         if (window.DeviceMotionEvent == undefined) {
+        //No accelerometer is present. Use buttons. 
+        alert("no accelerometer");
+    }
+    else {
+        alert("accelerometer found");
+        window.addEventListener("devicemotion", accelerometerUpdate, true);
+    }
+    function accelerometerUpdate(e) {
+        var aX = event.accelerationIncludingGravity.x*1;
+        var aY = event.accelerationIncludingGravity.y*1;
+        var aZ = event.accelerationIncludingGravity.z*1;
+        //The following two lines are just to calculate a
+        // tilt. Not really needed. 
+        xPosition = Math.atan2(aY, aZ);
+        yPosition = Math.atan2(aX, aZ);
+        console.log("ac"+aX)
+        var sp1=document.getElementById('one')
+        sp1.innerHTML=aX
+        var sp2=document.getElementById('two')
+        sp2.innerHTML=aY
+        var sp3=document.getElementById('three')
+        sp3.innerHTML=aZ
+        var sp4=document.getElementById('four')
+        sp4.innerHTML=xPosition
+        var sp5=document.getElementById('five')
+        sp5.innerHTML=yPosition
+        console.log('aa'+xPosition)
+        }
+        // var sp1=document.getElementById('one')
+        // sp1.innerHTML=accelerometerUpdate.xPosition
+        // var sp2=document.getElementById('two')
+        // sp2.innerHTML=accelerometerUpdate.yPosition
+    </script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    max-width: 100%;
+}
+
+.page1{
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+    background: pink;
+}
+.page1 h1{
+    text-align: center;
+    font-family: 'avant guard';
+    
+}
+span{
+    font-size:20px;
+}
